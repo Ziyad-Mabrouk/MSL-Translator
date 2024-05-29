@@ -1,17 +1,13 @@
 from flask import request, jsonify,render_template, send_from_directory
 from application import app
 from application.processing import text2video, name_dir
+from application.prediction import predict
 import os
 
 errorpath = "/static/database/error.mp4"
 
-@app.route("/Question_Answering_AR", methods=['GET','POST'])
-def home_page_ar():
-    return render_template("indexar.html")
-
 @app.route("/", methods=['GET','POST'])
-@app.route("/Question_Answering_EN", methods=['GET','POST'])
-def home_page_en():
+def home_page():
     return render_template("index.html")
 
 
@@ -37,3 +33,12 @@ def process_data():
 def serve_static(filename):
     root_dir = os.path.dirname(os.getcwd())
     return send_from_directory(os.path.join(root_dir, 'static'), filename)
+
+@app.route('/predict', methods=['POST'])
+def predict_route():
+    try:
+        data = request.json  # Get JSON data from the request
+        action = predict(data)  # Call the predict function with the data
+        return jsonify({'action': action})
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500

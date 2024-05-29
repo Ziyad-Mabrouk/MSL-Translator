@@ -10,12 +10,12 @@
     <header>
         <h2 id="title">Moroccan Sign Language Translator</h2>
         <nav class="navbar">
-            <img src="../static/Logo_inpt.png" alt="Your Logo">
+            <img src="../static/imgs/Logo_inpt.png" alt="Your Logo">
         </nav>
     </header>
 
     <div class="sub-header">
-        <h2>Translate your text to MSL</h2>
+        <h2 class="sub-header-title">Translate your text to MSL</h2>
         <div class="sub-header-content">
             <h3 class="first t">Text</h3>
             <button id="switch">Switch</button>
@@ -24,35 +24,46 @@
     </div>
 
     <div class="text-to-MSL">
-        <div class="text-box-1">
-            <form class="text-form">
-                <textarea placeholder="Type your text in arabic to get MSL video translation..."></textarea>
-                <div class="form-buttons">
-                    <button type="submit">Translate</button>
-                    <button type="button" class="edit">Edit</button>
-                </div>
-            </form>
-        </div>
-
-        <div class="filler"></div>
-
-        <div class="video-box-1">
-            <video controls>
-                <source src="" type="video/mp4" />
-                MSL video.   
-            </video>
-        </div>  
+        <div class="container">
+            <div class="text-box-1">
+                <form class="text-form">
+                    <textarea placeholder="Type your text in arabic to get MSL video translation..."></textarea>
+                    <div class="form-buttons">
+                        <button type="submit">Translate</button>
+                        <button type="button" class="edit">Edit</button>
+                    </div>
+                </form>
+            </div>
+    
+            <div class="filler"></div>
+    
+            <div class="video-box-1">
+                <video controls>
+                    <source src="" type="video/mp4" />
+                    MSL video.   
+                </video>
+            </div> 
+        </div> 
     </div>
 
     <div class="MSL-to-text hidden">
-        <div class="video-box-2">
-            <p>Turn on your webcam</p>
-            <button>Start</button>
-        </div>
+        <div class="container">
+            <div class="video-box-2">
+                <video id="video" width="400" height="300" autoplay></video>
+                <canvas id="canvas" width="400" height="300" style="display:none;"></canvas>
+                <button id="startStopButton">Start</button>
+            </div>
 
-        <div class="text-box">
-            <p>Text translation</p>
-        </div>
+            <div class="filler"></div>
+    
+            <div class="text-box-2">
+                <form class="text-form">
+                    <textarea id="prediction" placeholder="Translate ..." disabled></textarea>
+                    <div class="form-buttons">
+                        <button type="button" id="resetButton">Reset</button>
+                    </div>
+                </form>
+            </div>
     </div>
     <script src="../static/script.js"></script>
 </body>
