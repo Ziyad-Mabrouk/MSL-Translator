@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MSL Translator</title>
+    <link rel="stylesheet" href="../static/style.css" />
+</head>
+<body>
+    <header>
+        <h2 id="title">Moroccan Sign Language Translator</h2>
+        <nav class="navbar">
+            <img src="../static/Logo_inpt.png" alt="Your Logo">
+        </nav>
+    </header>
+
+    <div class="sub-header">
+        <h2>Translate your text to MSL</h2>
+        <div class="sub-header-content">
+            <h3 class="first t">Text</h3>
+            <button id="switch">Switch</button>
+            <h3 class="second t">MSL</h3>
+        </div>
+    </div>
+
+    <div class="text-to-MSL">
+        <div class="text-box-1">
+            <form class="text-form">
+                <textarea placeholder="Type your text in arabic to get MSL video translation..."></textarea>
+                <div class="form-buttons">
+                    <button type="submit">Translate</button>
+                    <button type="button" class="edit">Edit</button>
+                </div>
+            </form>
+        </div>
+
+        <div class="filler"></div>
+
+        <div class="video-box-1">
+            <video controls>
+                <source src="" type="video/mp4" />
+                MSL video.   
+            </video>
+        </div>  
+    </div>
+
+    <div class="MSL-to-text hidden">
+        <div class="video-box-2">
+            <p>Turn on your webcam</p>
+            <button>Start</button>
+        </div>
+
+        <div class="text-box">
+            <p>Text translation</p>
+        </div>
+    </div>
+    <script src="../static/script.js"></script>
+</body>
+</html>
