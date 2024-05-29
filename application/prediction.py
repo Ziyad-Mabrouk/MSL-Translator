@@ -4,7 +4,7 @@ import base64
 from tensorflow.keras.models import load_model
 import mediapipe as mp
 
-actions = np.array(['salamo alaikom', 'hamdulilah', 'kayfa halak'])
+actions = np.array(['السلام عليكم','الحمد لله', 'كيف الحال'])
 
 model = load_model('application/static/model/action.h5')
 mp_holistic = mp.solutions.holistic
