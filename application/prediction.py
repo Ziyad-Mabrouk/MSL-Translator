@@ -1,12 +1,34 @@
 import cv2
 import numpy as np
 import base64
+import h5py
 from tensorflow.keras.models import load_model
+from tensorflow.keras.initializers import Orthogonal
 import mediapipe as mp
 
 actions = np.array(['السلام عليكم','الحمد لله', 'كيف الحال'])
 
-model = load_model('application/static/model/action.h5')
+def remove_time_major(file_path):
+    with h5py.File(file_path, 'r+') as f:
+        model_config = f.attrs.get('model_config')
+        if model_config:
+            import json
+            config = json.loads(model_config)
+            for layer in config['config']['layers']:
+                if 'time_major' in layer['config']:
+                    del layer['config']['time_major']
+            f.attrs['model_config'] = json.dumps(config).encode('utf-8')
+
+# Path to your model
+model_path = 'application/static/model/action.h5'
+
+# Remove the time_major attribute
+remove_time_major(model_path)
+
+# Load the model
+model = load_model(model_path, custom_objects={'Orthogonal': Orthogonal})
+
+#model = load_model('application/static/model/action.h5')
 mp_holistic = mp.solutions.holistic
 mp_drawing = mp.solutions.drawing_utils
 
