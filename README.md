@@ -5,22 +5,23 @@ Python application for translating Moroccan sign language to Arabic text and vic
 <img width="960" alt="image" src="https://github.com/Ziyad-Mabrouk/MSL-Translator/assets/125457402/4ea0744d-8a83-4cc7-952b-1148d37c0902">
 
 To test our application, you can pull our Docker image by executing this command:
-* docker
   ```sh
   docker pull ghcr.io/ziyad-mabrouk/msl-transaltor:latest
   ```
 And then run the container:
-* docker
  ```sh
   docker run -p 80:80 ghcr.io/ziyad-mabrouk/msl-transaltor:latest
   ```
 You can now access the application from [http://localhost/](http://localhost/) .
 
 ### Built With
+Flask
+Mediapipe
+Tensorflow
+Scikit-learn
+NumPy
 
-* [!Flask].[Flask]].[Flask-url]
-
-### Contributors
+### Authors
 * Maborouk Ziyad
 * Quehlaoui Mohamed
 * Lansari Ibrahim
