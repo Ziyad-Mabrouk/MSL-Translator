@@ -26,7 +26,7 @@ You can now access the application from [http://localhost/](http://localhost/) .
 
 ### Authors
 
-* Maborouk Ziyad
+* Mabrouk Ziyad
 * Quehlaoui Mohamed
 * Lansari Ibrahim
 * Koumbogle Songuimpale
